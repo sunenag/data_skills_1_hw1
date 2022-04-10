@@ -16,9 +16,15 @@
 # "The value at position __ is __" for every element in the loop, where the first blank is the
 # index location and the second blank the object at that index location.
 
+
+#making a list of objects:
 q1_list = [7, "apple", 43, "basketball", 732, "Chicago" ]
+
+#creating a list which contains the index position and the object at that particular position:
 a=list(enumerate(q1_list))
 print(a)
+
+#printing the required statement:
 for i,j in a:
     print('The value at position', i, 'is', j)
     
@@ -32,14 +38,22 @@ for i,j in a:
 # rejecting the word "Apple" and the phrase "This isn't a palindrome". Print the results of these
 # four tests.
 
+#importing required library:
 import re
 
+#defining a new function to determine whether a phrase is a palindrome: 
+#The function removes all punctuation, spaces and converts all letters to lower case. 
+#It then converts the resultant object, 'b', to a list, separating all letters
+#Next, we reverse the order of the list.
+#If the forwards version is the same as backwards, the function returns True.
+# True implies that the expression is a palindrome
 def palindrome(a):
     b = re.sub(r'[^a-zA-Z]', '', a).lower()
     c=list(b)
     d=c[::-1]
     return c==d
 
+#testing out the required words and phrases:
 palindrome("radar")
 palindrome("A man, a plan, a canal, Panama!")
 palindrome("Apple")
@@ -56,6 +70,11 @@ palindrome("This isn't a palindrome")
 available_vegetables = ['carrot', 'kale', 'radish', 'pepper']
 choice = input('Please pick a vegetable I have available: ')
 
+#using the while function to make a conditions:
+#If the vegetable entered by user is not in the list, available_vegetables, then the program 
+#continues asking for a input until a vegetable from the list available_vegetables is entered. 
+#If the vegetable entered by user is in the available_vegetables list, the program prints the 
+#required statement with the vegetable of choice. 
 while choice not in available_vegetables:
     choice = input('Please pick a vegetable I have available: ')
 else:
@@ -66,10 +85,18 @@ else:
 # list that contains each string in all lower-case letters, but only if the string begins with the
 # letter "a" or "b".
 
+#making a list of strings, including variation in capitalization and starting alphabet:
 lst=["applE", "BanAnA", "Car", "DiAmonD", "AlpHAbet"]
 
+#creating an empty list to insert the strings that satisfy the requirements:
 q4_list=[]
 
+#Going through each term in the original list 'lst'.
+#Converting each string to lower case. 
+#Converting each string to its own list, separating the letters.
+#Checking if the first letter (index position 0) is 'a' or 'b'. 
+#If it is, the string is appended to the new list q4_list.
+ 
 for i in lst:
     a=i.lower()
     b=list(a)
@@ -78,17 +105,15 @@ for i in lst:
         
 print(q4_list)
 
+
 # Question 5: Beginning with the list below, write a single list comprehension that turns it into
 # the following list: [26, 22, 18, 14, 10, 6]
 start_list = [3, 5, 7, 9, 11, 13]
 
-results=[]
-flip_list = start_list[::-1]
-for i in flip_list:
-    a=i*2
-    results.append(a)
+
+q5=[i * 2 for i in start_list[::-1]]
     
-print(results)
+print(q5)
     
 
 
@@ -97,6 +122,7 @@ print(results)
 short_names = ['IL', 'IN', 'MI', 'OH']
 long_names  = ['Illinois', 'Indiana', 'Michigan', 'Ohio']
 
+
 q6_dict = dict(zip(short_names, long_names))
-print (q6_dict)
+print(q6_dict)
 
